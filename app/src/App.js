@@ -1,11 +1,13 @@
 import Account from './Accountpage'
 import './App.css';
+import SignUp from './AccountCreation'
+import { GlobalProvider } from './context/GlobalContext';
 
 function App() {
   return (
-    <div className="App">
-      <Account />
-    </div>
+    <GlobalProvider>
+      <SignUp />
+    </GlobalProvider>
   );
 }
 
