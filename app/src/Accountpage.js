@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react'
 import logo from './Images/Danstagram_logo.png'
+import {BsFillHeartFill, FaCommentDots, AiFillPicture} from 'react-icons/fa'
 
 // function CallAccount(){
 //     const [account, setAccount] = useState('Anon')
@@ -28,3 +29,4 @@ export default function Account() {
         </div>
     )
 }
+
