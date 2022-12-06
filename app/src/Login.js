@@ -22,8 +22,37 @@ export default function Login() {
             });
     }
     return(
-        <div>
-            
+        <div className="Justify-content-center">
+            <form onSubmit={handleLogin}>
+                <label> Username:
+                    <input 
+                    type='text'
+                    id='username'
+                    name='username'
+                    placeholder="Username"
+                    onChange={(e) => setUsername(e.target.value)}
+                    required
+                    />
+                </label>
+                <label> Password:
+                    <input 
+                    type='text'
+                    id='password'
+                    name='password'
+                    placeholder="Password"
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                    />
+                </label>
+                <input
+                type='submit'
+                value='Login!'
+                />
+            </form>
+            <div className="SignUp-Question">
+                <p> do you need to create an acount?</p>
+                <button>SignUp!</button>
+            </div>
         </div>
     )
 }
