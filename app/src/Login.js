@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import AuthService from "./services/auth.service";
-import { useGlobalState } from "./context/GlobalContext";
+import { useGlobalState } from "./context/GlobalState";
 import jwtDecode from "jwt-decode";
 
 export default function Login() {
