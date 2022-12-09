@@ -22,7 +22,7 @@ export default function Login() {
             });
     }
     return(
-        <div className="Justify-content-center">
+        <div className="login-card">
             <form onSubmit={handleLogin}>
                 <label> Username:
                     <input 

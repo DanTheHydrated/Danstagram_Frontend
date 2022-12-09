@@ -10,6 +10,10 @@ import {
 import Login from './Login';
 import SignUp from './Register';
 import Profile from './profile'
+import Post from './Post'
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.js';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -21,6 +25,7 @@ root.render(
                     <Route path="login" element={<Login />} />
                     <Route path="register" element={<SignUp />} />
                     <Route path="profile" element={<Profile />} />
+                    <Route path="post" element={<Post />} />
                 </Route>
             </Routes>
         </Router>

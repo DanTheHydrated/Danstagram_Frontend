@@ -32,45 +32,47 @@ body, html, .App, #root, .outer {
   height: 100%;
 }
 
-.forgot-password {
-  text-size-adjust: 15;
+.login-card {
+border-radius: 15px;
+margin: auto;
 }
 
-.forgot-password,
-.forgot-password a {
-  text-align: center;
-  font-size: 13px;
-  padding-top: 10px;
-  color: #7f7d7d;
-  margin: 0;
+.container-profile {
+align-items: center;
+justify-content: center;
 }
 
-.forgot-password a {
-  color: #167bff;
-}
-
-.auth-wrapper {
-  display: flex;
+.profile-pic {
+  border-radius: 50%;
   justify-content: center;
-  flex-direction: column;
-  text-align: left;
+  height: 100px;
+  width: 100px;
 }
-.auth-inner {
-  width: 450px;
+
+.username-holder {
+margin-left: 10px;
+margin-bottom: 20px;
+align-self: left;
+}
+
+/* .following-btn, .followers-btn {
+  position:relative;
+  float:right;
+} */
+
+/* .followers-bio {
+  align-self: right;
+  justify-items: center;
+  position:relative;
+  float:right;
+} */
+
+.profile_card {
+  justify-content: center;
+  border-radius: 10px;
+  border-color: black;
+  background-color: azure;
+  width: 50%;
+  align-items: center;
   margin: auto;
-  background: #ffffff;
-  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
-  padding: 40px 55px 45px 55px;
-  border-radius: 15px;
-  transition: all .3s;
-}
-.auth-wrapper .form-control:focus {
-  border-color: #167bff;
-  box-shadow: none;
-}
-.auth-wrapper h3 {
-  text-align: center;
-  margin: 0;
-  line-height: 1;
-  padding-bottom: 20px;
 }

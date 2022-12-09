@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useGlobalState } from "./context/GlobalState";
+import {CgProfile} from 'react-icons'
 
 function NavBar() {
     const [state, dispatch] = useGlobalState();
@@ -28,6 +29,13 @@ function NavBar() {
                     state.currentUser && (
                         <li>
                             <Link to="/profile">Profile</Link>
+                        </li>
+                    )
+                }
+                {
+                    state.currentUser && (
+                        <li>
+                            <Link to="/post">Post</Link>
                         </li>
                     )
                 }
