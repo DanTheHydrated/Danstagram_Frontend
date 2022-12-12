@@ -4,12 +4,26 @@ import request from './services/api.request';
 import { useEffect, useState } from 'react';
 import Anon from './Images/Anon.png'
 import {CgProfile} from 'react-icons'
+import AuthService from "./services/auth.service";
+import { Navigate } from "react-router-dom";
 
 const Profile = () => {
     const [state, dispatch] = useGlobalState();
     const Myself = state.currentUser.user_id;
     let PFP = Anon;
     const [user, setUser] = useState([]);
+    const [posts, setPosts] = useState([]);
+    let posts2 = [];
+
+    const logout = () => {
+        AuthService.logout();
+        dispatch({
+            currentUserToken: null,
+            currentUser: null,
+        });
+        Navigate("/login");
+    };
+
     console.log(user)
     useEffect(() => {
         async function getUser() {
@@ -27,8 +41,27 @@ const Profile = () => {
         // let followers = {user.followers}
     },[])
 
+    useEffect(() => {
+        async function getPosts() {
+            let options = {
+                url: `posts/`,
+                method: "GET"
+            };
+            let resp = await request(options);
+            setPosts(resp.data);
+        }
+        getPosts();
+    },[])
 
+    console.log(posts2)
 
+    posts.forEach((posts) => {
+        let id = posts.id;
+        let image = posts.picture.replace('http://localhost:8000', 'https://8000-danthehydra-workingfina-hfb2p5jdcyp.ws-us78.gitpod.io');
+        let description = posts.description;
+        let title = posts.title;
+        posts2.push({id, image, description, title});
+    })
 
     return (
     <div>
@@ -37,7 +70,7 @@ const Profile = () => {
                 <div className="col col-md-9 col-lg-7 col-xl-5">
                     <div className="card">
                         <div className="card-body p-4">
-                            <div className="d-flex text-black">
+                            <div className="d-flex text-black mb-15">
                                 <div className="flex-shrink-0">
                                     <img src={PFP} alt="Profile Picture" className="profile-pic" />
                                 </div>
@@ -59,11 +92,18 @@ const Profile = () => {
                                         </div>
                                     </div>
                                     <div className="d-flex pt-1">
-                                        <button type="button" className="btn btn-outline-primary me-1 flex-grow-1">Chat</button>
+                                        <button type="button" className="btn btn-outline-primary me-1 flex-grow-1" onClick={() => logout()}>Logout</button>
                                         <button type="button" className="btn btn-primary flex-grow-1">Follow</button>
                                     </div>
                                 </div>
                             </div>
+                            {posts2.map((x) => (
+                                        <div className="card">
+                                            <h1 key='x.title'>{x.title}</h1>
+                                            <img src={x.image} key='x.image' />
+                                            <p key='x.description'>{x.description}</p>
+                                        </div>
+                                    ))}
                         </div>
                     </div>
                 </div>
@@ -72,6 +112,14 @@ const Profile = () => {
     </div>
     );
 }
+
+
+// {posts.map((P) => {
+//     <h1>{P}</h1>
+// // <img src={P.Picture} />
+// <p>{P.Description}</p>
+// })};
+
 
 export default Profile
 

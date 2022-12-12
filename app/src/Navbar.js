@@ -39,6 +39,13 @@ function NavBar() {
                         </li>
                     )
                 }
+                {/* {
+                    state.currentUser && (
+                        <li>
+                            <Link to="/feed">Feed</Link>
+                        </li>
+                    )
+                } */}
             </ul>
         </nav>
     );

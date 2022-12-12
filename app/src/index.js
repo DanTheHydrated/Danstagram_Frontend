@@ -11,9 +11,23 @@ import Login from './Login';
 import SignUp from './Register';
 import Profile from './profile'
 import Post from './Post'
+import Feed from './Feedpage';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
+import { Auth, getAuth } from "firebase/auth";
+import { initializeApp } from "firebase/app";
 
+const firebaseConfig = {
+    apiKey: "AIzaSyC_7I2I8WtpcWbuKSif1N-R9Mk78LQme5k",
+    authDomain: "danstagram-ad70a.firebaseapp.com",
+    projectId: "danstagram-ad70a",
+    storageBucket: "danstagram-ad70a.appspot.com",
+    messagingSenderId: "84384280152",
+    appId: "1:84384280152:web:b98abf6a4044ebc202e42d",
+    measurementId: "G-R1EKFL26PG"
+  };
+
+  const app = initializeApp(firebaseConfig);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -26,6 +40,7 @@ root.render(
                     <Route path="register" element={<SignUp />} />
                     <Route path="profile" element={<Profile />} />
                     <Route path="post" element={<Post />} />
+                    {/* <Route path='feed' element={<Feed />} /> */}
                 </Route>
             </Routes>
         </Router>

@@ -7,7 +7,6 @@ export default function SignUp() {
     const [user, setUser] = useState({
         username: "",
         password: "",
-        passwordCon: "",
         firstName: "",
         lastName: "",
         email: ""
